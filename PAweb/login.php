@@ -2,10 +2,10 @@
     if(isset($_SESSION['login'])){
         session_start();
         echo "<script>
-                document.location.href = 'index.php'
+                document.location.href = 'LandingPageUser.php'
             </script>";
     }
-    
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +27,7 @@
             <label for="">Password</label><br>
             <input type="password" name="password" > <br><br>
 
-            <button type="submit" name="login" class="submit">LOGIN</button> 
+            <button type="submit" name="login" class="submit">LOGIN</button>
         </form>
         <br>
         <p>
@@ -38,7 +38,7 @@
             Atau
         </p>
         <p>
-            Anda seorang Admin? 
+            Anda seorang Admin?
             <a href="admin.php">Admin</a>
         </p>
     </div>
@@ -55,7 +55,7 @@
 
         $sql = "SELECT * FROM user WHERE username = '$user'";
         $result = $db->query($sql);
-        
+
         if(mysqli_num_rows($result) > 0){
             $row = mysqli_fetch_array($result);
             $orang = $row['nama'];
@@ -63,13 +63,14 @@
 
             if(password_verify($pwd, $row['pwd'])){
                 $_SESSION['login'] = true;
+                $_SESSION['nama'] = $orang;
                 echo "<script>
                         document.cookie='id_user=$iduser';
                         alert('Selamat Datang $orang');
-                        document.location.href = 'index.php';
+                        document.location.href = 'LandingPageUser.php';
                     </script>";
             }
-    
+
             else{
                 echo "<script>
                         alert('Username dan Password Salah');
@@ -80,7 +81,7 @@
             echo "<script>
                     alert('Username tidak ada');
                 </script>";
-        } 
+        }
     }
 
 ?>

@@ -1,5 +1,12 @@
 <?php
     require 'config.php';
+    session_start();
+    if(!isset($_SESSION['login'])){
+        echo "<script>
+                alert('Harap login terlebih dahulu');
+                document.location.href = 'login.php';
+            </script>";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -16,11 +23,10 @@
 <body>
 <header id ="Home">
         <nav>
-            <a href="index.html"><img class="Logo" src="img/gadgetblack.png" alt="gadget" id="logo" height="73px"></a>
+            <a href="crud.php"><img class="Logo" src="img/gadgetblack.png" alt="gadget" id="logo" height="73px"></a>
             <div class="navi" id="naviList">
                 <ul id="listNav">
-                    <li><a href="index.php">Home</a></li>
-                    <li id="barang"><a href="talent.php">GadgetList</a></li>
+                    <li><a href="crud.php">Home</a></li>
                     <li id="about_id"><a href="about.html">About Us</a></li>
                     <li id="akun_id"><a href="logout.php">Log out</a></li>
                 </ul>
@@ -58,11 +64,11 @@
                         include "config.php";
                         if(isset($_GET['keyword'])){
                             $cari = $_GET['keyword'];
-                            
+
                             $query = "SELECT * FROM barang WHERE merk LIKE '%".$cari."%' or spec LIKE '%".$cari."%' or warna LIKE '%".$cari."%'";
                         } else {
                             $query = "SELECT * FROM barang";
-                            
+
                         }
                         $i = 1;
                         $hasil = mysqli_query($db, $query);
@@ -92,9 +98,9 @@
 
     <footer>
         <ul id="footer_id">
-            <li><a href="#Home">Home</a></li>
+            <li><a href="crud.php">Home</a></li>
             <li><a href="about.html">About Me</a></li>
-            <li><a href="#Contact">Contact Us</a></li>
+            <li><a href="contact.php">Contact Us</a></li>
         </ul>
         <p class="hakcipta" id="hc">
             VTuber @ 2022
@@ -110,17 +116,17 @@
 <?php
     if(isset($_GET['search'])){
         $keyword = $_GET['keyword'];
-        
+
         $hasil = mysqli_query($db, "SELECT * FROM belanja WHERE merk LIKE '%".$keyword."%' OR spec '%".$keyword."%' OR warna '%".$keyword."%'");
     } else {
         $hasil = mysqli_query($db, "SELECT * FROM belanja");
-        
+
     }
-    
+
     $vtuber = [];
 
     while($row = mysqli_fetch_assoc($hasil)){
         $vtuber = $row;
     }
-    
+
 ?>

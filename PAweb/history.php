@@ -18,10 +18,10 @@
 <body>
 <header id ="Home">
         <nav>
-            <a href="index.html"><img class="Logo" src="img/gadgetblack.png" alt="gadget" id="logo" height="73px"></a>
+            <a href="LandingPageUser.php"><img class="Logo" src="img/gadgetblack.png" alt="gadget" id="logo" height="73px"></a>
             <div class="navi" id="naviList">
                 <ul id="listNav">
-                    <li><a href="index.php">Home</a></li>
+                    <li><a href="LandingPageUser.php">Home</a></li>
                     <li id="barang"><a href="belanja.php">GadgetList</a></li>
                     <li id="about_id"><a href="about.html">About Us</a></li>
                     <li id="akun_id"><a href="logout.php">Log out</a></li>
@@ -49,7 +49,7 @@
                     <?php
                         $i = 1;
                         while ($row = mysqli_fetch_assoc($result)) {
-                    
+
                     ?>
 
                 <tr>
@@ -73,9 +73,9 @@
 
     <footer>
         <ul id="footer_id">
-            <li><a href="#Home">Home</a></li>
+            <li><a href="LandingPageUser.php">Home</a></li>
             <li><a href="about.html">About Me</a></li>
-            <li><a href="#Contact">Contact Us</a></li>
+            <li><a href="contact.php">Contact Us</a></li>
         </ul>
         <p class="hakcipta" id="hc">
             VTuber @ 2022

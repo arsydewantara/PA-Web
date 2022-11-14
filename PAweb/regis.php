@@ -19,7 +19,7 @@
 
             <label for="">Password</label> <br>
             <input type="password" name="pwd" id=""> <br><br>
-            
+
             <label for="">Konfirmasi Password</label><br>
             <input type="password" name="kpwd"><br><br>
 
@@ -59,7 +59,7 @@
                 $pwd = password_hash($pwd, PASSWORD_DEFAULT);
 
                 $query = "INSERT INTO user (nama,username, pwd)VALUES ('$nama_akun', '$username', '$pwd')";
-                            
+
                 $result = $db->query($query);
 
                 if($result){

@@ -1,13 +1,3 @@
-<?php
-    session_start();
-    if(!isset($_SESSION['login'])){
-        echo "<script>
-                alert('Harap login terlebih dahulu');
-                document.location.href = 'login.php';
-            </script>";
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,22 +16,20 @@
                     <li><a href="LandingPageUser.php">Home</a></li>
                     <li id="barang"><a href="belanja.php">GadgetList</a></li>
                     <li id="about_id"><a href="about.html">About Us</a></li>
-                    <li id="akun_id"><a href="logout.php">Log out</a></li>
-                    <li id="darkmode_id">DarkMode</li>
+                    <li id="akun_id"><a href="akun/register.php">Account</a></li>
                 </ul>
             </div>
         </nav>
     </header>
     <main>
+    <main>
         <div class="main-konten">
             <div class="konten1">
-                <h1 id="slogan">SEE KINDS OF GADGET WE OFFER TO YOU!</h1>
-                <p>Buy and see many varieties of gadgets
-                    that you can buy and bring them home
-                    for you to use!
-                </p>
-                <a class="order" href="formadd.php"><button>ORDER NOW</button></a>
-                <a class="cart" href="talent.php"><button>SEE CART</button></a>
+                <div class="contactperson">
+                    <h2>CONTACT PERSON</h2>
+                    <p id="cp"> Muhammad Arsy Dewantara/Rivan Abdillah</p>
+                    <p id="cn">0812xxxxxxxx/0852xxxxxxxx</p>
+                </div>
             </div>
             <div class="konten2">
                 <img src="img/pict1.png" alt="maskot" id="phoneimg" height="300px">
@@ -51,12 +39,15 @@
     <footer>
         <ul id="footer_id">
             <li><a href="LandingPageUser.php">Home</a></li>
-            <li><a href="about.html">About Me</a></li>
+            <li><a href="about.html">About Us</a></li>
             <li><a href="contact.php">Contact Us</a></li>
         </ul>
         <p class="hakcipta" id="hc">
             VTuber @ 2022
         </p>
+        <div class="mode">
+            <input type="checkbox" id="darkmode_id">
+        </div>
     </footer>
 </body>
 <script src="script.js"></script>

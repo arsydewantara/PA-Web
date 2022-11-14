@@ -153,6 +153,24 @@ nav {
     display: none;
 }
 
+.info{
+    position: relative;
+    left: 10px;
+    top: 200px;
+}
+
+.contactperson{
+    position: relative;
+    top: 100px;
+}
+
+.deskripsi{
+    font-family: 'Rubik', sans-serif;
+    position: relative;
+    bottom: 100px;
+    left: 10px;
+}
+
 .order :hover{
     background-color: #000000;
     color: #fcfcfc;
@@ -260,23 +278,23 @@ footer .hakcipta {
 
 @media screen and (max-width: 721px){
 
-    
+
 
     .navi ul li{
         display: block;
         padding-top: 15px;
-    } 
+    }
 
     .navi #close {
         display: block;
         max-height: 20px;
         margin: 10px 10px 10px 100px;
         cursor: pointer;
-        
+
     }
     .navi ul{
         padding: 30px;
-    } 
+    }
     .main-konten{
         display: block;
         /* max-height: 20px; */
@@ -328,5 +346,5 @@ footer .hakcipta {
     #close {
         font-size: 25px;
     }
-    
+
 }

@@ -1,6 +1,11 @@
 <?php
-    require 'config.php';
-    $result = mysqli_query($db, "SELECT * FROM barang");
+    session_start();
+    if(!isset($_SESSION['login'])){
+        echo "<script>
+                alert('Harap login terlebih dahulu');
+                document.location.href = 'login.php';
+            </script>";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -10,12 +15,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VTuber</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/solid.min.css">
-    <link rel="stylesheet" href="stylebelanja.css">
 </head>
 <body>
-<header id ="Home">
+    <header id ="Home">
         <nav>
             <a href="LandingPageUser.php"><img class="Logo" src="img/gadgetblack.png" alt="gadget" id="logo" height="73px"></a>
             <div class="navi" id="naviList">
@@ -23,6 +28,7 @@
                     <li><a href="LandingPageUser.php">Home</a></li>
                     <li id="barang"><a href="belanja.php">GadgetList</a></li>
                     <li id="about_id"><a href="about.html">About Us</a></li>
+                    <li id="hist_id"><a href="history.php">History</a></li>
                     <li id="akun_id"><a href="logout.php">Log out</a></li>
                 </ul>
                 <i class="fa-solid fa-xmark" id="close"></i>
@@ -31,45 +37,20 @@
         </nav>
     </header>
     <main>
-        <div class="head-table" id="tabletext">
-            <h3>DAFTAR GADGET YANG TERSEDIA</h3>
-        </div>
-        <div class="table" style="overflow-x:auto;">
-            <table border="1">
-                <tr>
-                    <th>NO</th>
-                    <th>Merk Gadget</th>
-                    <th>Spesifikasi</th>
-                    <th>Warna</th>
-                    <th>Harga</th>
-                    <th>Tanggal Release</th>
-                    <th>Gambar Gadget</th>
-                    <th>Checkout</th>
-                </tr>
-                    <?php
-                        $i = 1;
-                        while ($row = mysqli_fetch_assoc($result)) {
-
-                    ?>
-
-                <tr>
-                    <td><?=$i?></td>
-                    <td><?=$row['merk']?></td>
-                    <td><?=$row['spec']?></td>
-                    <td><?=$row['warna']?></td>
-                    <td><?=$row['harga']?></td>
-                    <td><?=$row['rilis']?></td>
-                    <td><img src="model/<?=$row['gambarhp']?>" alt="" width="100px"></td>
-                    <td><a href="thanks.php?id=<?=$row['id']?>" ><i class="fa fa-shopping-cart" style="font-size:36px" id="cart" name='buy'></i></a></td>
-                </tr>
-                    <?php
-                        $i++;
-                    }
-                    ?>
-            </table>
+        <div class="main-konten">
+            <div class="konten1">
+                <h1 id="slogan">SEE KINDS OF GADGET WE OFFER TO YOU!</h1>
+                <p>Buy and see many varieties of gadgets
+                    that you can buy and bring them home
+                    for you to use!
+                </p>
+                <a class="order" href="belanja.php"><button>ORDER NOW</button></a>
+            </div>
+            <div class="konten2">
+                <img src="img/pict1.png" alt="maskot" id="phoneimg" height="300px">
+            </div>
         </div>
     </main>
-
     <footer>
         <ul id="footer_id">
             <li><a href="LandingPageUser.php">Home</a></li>
@@ -86,4 +67,3 @@
 </body>
 <script src="script.js"></script>
 </html>
-

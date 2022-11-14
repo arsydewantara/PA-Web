@@ -7,6 +7,9 @@ $('#darkmode_id').click(function () {
     if (irengmode === 0) {
         alert('Akan memasuki Dark Mode');
         $('.head-table').css('color', 'white');
+        $('.info').css('color', 'white');
+        $('.deskripsi').css('color', 'white');
+        $('.contactperson').css('color', 'white');
         $('#logo').attr('src', 'img/gadgetwhite.png')
         $('#naviList, header').css('background-color', "#8EB5BA")
         $('#darkmode_id').text('LightMode');
@@ -20,7 +23,10 @@ $('#darkmode_id').click(function () {
         irengmode = 1;
     } else {
         alert('Akan memasuki Light Mode');
-        $('.head-table').css('color', 'white');
+        $('.head-table').css('color', 'black');
+        $('.info').css('color', 'black');
+        $('.deskripsi').css('color', 'black');
+        $('.contactperson').css('color', 'black');
         $('#logo').attr('src', 'img/gadgetblack.png');
         $('#naviList, header').css('background-color', "#8EB5BA")
         $('#darkmode_id').text('DarkMode');

@@ -16,7 +16,7 @@
         $gambar = $row['gambarhp'];
         $id_user = $_COOKIE['id_user'];
 
-        $query = "INSERT INTO checkout (merk,spec,warna, harga, rilis, gambarhp, id_user) 
+        $query = "INSERT INTO checkout (merk,spec,warna, harga, rilis, gambarhp, id_user)
         VALUES ('$merk','$spec','$warna','$harga','$rilis','$gambar', '$id_user')";
         $hasil = $db->query($query);
 
@@ -25,8 +25,8 @@
         }else{
             echo "gagal kirim";
         }
-        
-        
+
+
     }else{
         echo "tidak ada barang yang dibeli";
     }
@@ -45,10 +45,10 @@
 <body>
     <header id ="Home">
         <nav>
-            <a href="index.html"><img class="Logo" src="img/gadgetblack.png" alt="gadget" id="logo" height="73px"></a>
+            <a href="LandingPageUser.php"><img class="Logo" src="img/gadgetblack.png" alt="gadget" id="logo" height="73px"></a>
             <div class="navi" id="naviList">
                 <ul id="listNav">
-                    <li><a href="index.php">Home</a></li>
+                    <li><a href="LandingPageUser.php">Home</a></li>
                     <li id="barang"><a href="belanja.php">GadgetList</a></li>
                     <li id="about_id"><a href="about.html">About Us</a></li>
                     <li id="akun_id"><a href="logout.php">Log out</a></li>
@@ -68,9 +68,9 @@
     </main>
     <footer>
         <ul id="footer_id">
-            <li><a href="index.php">Home</a></li>
+            <li><a href="LandingPageUser.php">Home</a></li>
             <li><a href="about.html">About Me</a></li>
-            <li><a href="#Contact">Contact Us</a></li>
+            <li><a href="contact.php">Contact Us</a></li>
         </ul>
         <p class="hakcipta" id="hc">
             VTuber @ 2022
