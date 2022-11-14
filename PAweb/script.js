@@ -6,10 +6,11 @@ var irengmode = 0;
 $('#darkmode_id').click(function () {
     if (irengmode === 0) {
         alert('Akan memasuki Dark Mode');
+        $('.head-table').css('color', 'white');
         $('#logo').attr('src', 'img/gadgetwhite.png')
         $('#naviList, header').css('background-color', "#8EB5BA")
         $('#darkmode_id').text('LightMode');
-        $('main, .main-konten').css('background-color', '#2D393B');
+        $('main, .main-konten, .searchbar').css('background-color', '#2D393B');
         $('li, a').css('color', 'white');
         $('button').css('color', 'white');
         $('p').css('color', 'white');
@@ -19,10 +20,11 @@ $('#darkmode_id').click(function () {
         irengmode = 1;
     } else {
         alert('Akan memasuki Light Mode');
+        $('.head-table').css('color', 'white');
         $('#logo').attr('src', 'img/gadgetblack.png');
         $('#naviList, header').css('background-color', "#8EB5BA")
         $('#darkmode_id').text('DarkMode');
-        $('main, .main-konten').css('background-color', '#BFF3FA');
+        $('main, .main-konten, .searchbar').css('background-color', '#BFF3FA');
         $('li, a').css('color', 'black');
         $('button').css('color', 'black');
         $('p').css('color', 'black');

@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VTuber</title>
+    <title>GadgetList</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/solid.min.css">
     <link rel="stylesheet" href="stylebelanja.css">
@@ -35,12 +35,11 @@
         </div>
         <nav>
             <button class="addbutton" id="tmbhbtn"><a href="formadd.php" style="text-decoration: none;">TAMBAH DATA</a></button>
-            <div class="searchbar">
-                <input type="text" name="keyword" id="keyword" class="form-control" placeholder="Search Bar" value="<?php if(isset($_GET['keyword'])){echo $_GET['keyword'];}?>">
-                <button type="submit" class="searchbtn" name="search">
-                    <i class="fa fa-search"></i>
-                </button>
-            </div>
+            <form class="searchbar" method= "get" action="">
+                <input type="text" name="keyword" id="keyword" placeholder="Search Bar" value="<?php if(isset($_GET['keyword'])){echo $_GET['keyword'];}?>">
+
+                <button type="submit" class="searchbtn" name="search"><i class="fa fa-search"></i></button>
+            </form>
         </nav>
         <div class="table" style="overflow-x:auto;">
             <table border="1">
@@ -56,10 +55,11 @@
                     <th>Menghapus</th>
                 </tr>
                     <?php
+                        include "config.php";
                         if(isset($_GET['keyword'])){
-                            $keyword = $_GET['keyword'];
+                            $cari = $_GET['keyword'];
                             
-                            $query = "SELECT * FROM barang WHERE merk LIKE '%".$keyword."%' OR spec '%".$keyword."%' OR warna '%".$keyword."%'";
+                            $query = "SELECT * FROM barang WHERE merk LIKE '%".$cari."%' or spec LIKE '%".$cari."%' or warna LIKE '%".$cari."%'";
                         } else {
                             $query = "SELECT * FROM barang";
                             
